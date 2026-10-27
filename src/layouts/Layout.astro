@@ -1,0 +1,41 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "n't suite — Android De-bloated, Privacy-Focused & Mint Glass",
+  description = "Suite de reemplazo de apps Android: Cero publicidad, cero telemetría corporativa, diseño Dark Obsidian Mint Glass y optimización extrema para Samsung Galaxy S21 FE a 120Hz."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- OpenGraph & Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nt.nikko.dev/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://nt.nikko.dev/images/spotint_showcase.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://nt.nikko.dev/images/spotint_showcase.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icons/spotint.png" />
+    <meta name="theme-color" content="#070D0A" />
+
+    <link rel="stylesheet" href="/src/styles/mint-glass.css" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
