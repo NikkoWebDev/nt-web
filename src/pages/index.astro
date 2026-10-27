@@ -3,378 +3,647 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-  <!-- Ambient Top Glows -->
-  <div style="position: absolute; top: 0; left: 20%; width: 450px; height: 350px; background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, transparent 70%); filter: blur(80px); pointer-events: none;"></div>
-  <div style="position: absolute; top: 100px; right: 15%; width: 500px; height: 400px; background: radial-gradient(circle, rgba(255, 42, 95, 0.10) 0%, transparent 70%); filter: blur(90px); pointer-events: none;"></div>
+  <!-- Global Raycast Spotlight Ambient -->
+  <div style="position: absolute; top: 0; left: 15%; width: 600px; height: 450px; background: radial-gradient(circle, rgba(0, 245, 160, 0.08) 0%, transparent 70%); filter: blur(90px); pointer-events: none;"></div>
+  <div style="position: absolute; top: 120px; right: 10%; width: 650px; height: 500px; background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 70%); filter: blur(100px); pointer-events: none;"></div>
 
-  <!-- Header -->
-  <header style="position: sticky; top: 16px; z-index: 50; padding: 0 24px; max-width: 1240px; margin: 0 auto;">
-    <div class="prism-card" style="padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; border-radius: 9999px;">
+  <!-- Top Sticky Header -->
+  <header style="position: sticky; top: 16px; z-index: 50; padding: 0 24px; max-width: 1320px; margin: 0 auto;">
+    <div class="raycast-card" style="padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; border-radius: 9999px;">
       <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
-        <span style="display: inline-flex; width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, rgba(0, 245, 160, 0.2), rgba(0, 229, 255, 0.2)); border: 1px solid rgba(255, 255, 255, 0.25); align-items: center; justify-content: center; font-weight: 800; color: #FFF; font-family: var(--font-display);">
+        <span style="display: inline-flex; width: 32px; height: 32px; border-radius: 8px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; color: #FFF; font-family: var(--font-display);">
           n't
         </span>
-        <span class="font-display" style="font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em;">
-          nt.<span style="color: var(--mint);">nikko.dev</span>
+        <span class="font-editorial" style="font-size: 1.15rem; letter-spacing: -0.02em;">
+          nt.<span style="color: var(--accent-mint);">nikko.dev</span>
         </span>
       </a>
 
-      <nav style="display: flex; align-items: center; gap: 28px;">
-        <a href="#apps" style="color: var(--text-mid); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s;">Apps</a>
-        <a href="#hardware" style="color: var(--text-mid); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s;">S21 FE</a>
-        <a href="#terminal" style="color: var(--text-mid); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s;">CLI Builds</a>
-      </nav>
+      <!-- Quick Status -->
+      <div style="display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 10px var(--accent-mint);"></span>
+        <span>SUITE V2.0 • 5 APPS ONLINE</span>
+      </div>
 
-      <a href="https://github.com/NikkoWebDev/nt-suite" target="_blank" rel="noopener" class="badge badge-cyan" style="text-decoration: none; padding: 8px 16px;">
-        <span>GitHub Suite</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-      </a>
+      <!-- Navigation & Action -->
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="#apps" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s;">Apps</a>
+        <a href="#telemetry" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s;">S21 FE</a>
+        <a href="https://github.com/NikkoWebDev/nt-suite" target="_blank" rel="noopener" class="raycast-btn raycast-btn-secondary" style="padding: 7px 14px; font-size: 0.82rem; border-radius: 9999px;">
+          <span>GitHub</span>
+          <kbd>G</kbd>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main style="max-width: 1240px; margin: 0 auto; padding: 50px 24px 100px;">
+  <main style="max-width: 1320px; margin: 0 auto; padding: 60px 24px 140px;">
 
-    <!-- Hero Section -->
-    <section style="padding: 60px 0 70px;">
-      <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
-        <span class="badge badge-mint">Android De-bloated Suite</span>
-        <span class="badge badge-crimson">Cero Anuncios</span>
-        <span class="badge badge-cyan">Snapdragon & Exynos Tuned</span>
+    <!-- ==============================================================================
+         KOTO MONUMENTAL EDITORIAL HERO
+         ============================================================================== -->
+    <section style="padding: 60px 0 80px; border-bottom: 1px solid var(--border-subtle);">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px;">
+        <span class="koto-badge active-mint">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-mint);"></span>
+          00 // MANIFIESTO DE HARDWARE
+        </span>
+        <span class="koto-badge">SAMSUNG GALAXY S21 FE OPTIMIZED</span>
+        <span class="koto-badge">CERO ANALYTICS</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 28px;">
+        <h1 class="koto-huge-title">
+          EL HARDWARE ES TUYO.<br />
+          <span style="color: var(--text-muted);">LAS APPS YA NO MANDAN.</span>
+        </h1>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 10px; align-items: end;">
+          <p style="font-size: 1.28rem; line-height: 1.55; color: var(--text-secondary); max-width: 680px;">
+            Reconstrucción sin concesiones de las 5 aplicaciones más abusivas del ecosistema Android: <strong style="color: #FFF;">Spotify, YouTube, TikTok, Instagram y WhatsApp</strong>. Sin hilos de telemetría devorando ciclos de CPU, sin popups comerciales y con fondos OLED puros a 120Hz.
+          </p>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-start;">
+            <a href="#apps" class="raycast-btn raycast-btn-primary">
+              <span>Examinar las 5 Apps</span>
+              <kbd>↓</kbd>
+            </a>
+            <a href="https://github.com/NikkoWebDev/nt-suite" target="_blank" rel="noopener" class="raycast-btn raycast-btn-secondary">
+              <span>Clonar Monorepo</span>
+              <kbd>git</kbd>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================================
+         RAYCAST HARDWARE TELEMETRY BENTO
+         ============================================================================== -->
+    <section id="telemetry" style="padding: 60px 0 80px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
         <div>
-          <h1 class="font-display" style="font-size: clamp(3rem, 6.5vw, 5.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px;">
-            El hardware es tuyo.<br />
-            <span style="background: linear-gradient(90deg, #FFFFFF 0%, var(--mint) 45%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-              Las apps ya no mandan.
-            </span>
-          </h1>
-
-          <p style="font-size: 1.25rem; line-height: 1.6; color: var(--text-mid); max-width: 780px; margin-bottom: 36px;">
-            YouTube, Instagram, WhatsApp, Spotify y TikTok convertidas en herramientas limpias, rápidas y privadas. Sin rastreadores comerciales, sin botones forzados de Meta AI y con fondos OLED puros para pantallas a 120 Hz.
-          </p>
-
-          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-            <a href="#apps" class="btn-primary">
-              <span>Explorar las 5 apps</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-            </a>
-            <a href="https://github.com/NikkoWebDev/nt-suite" target="_blank" rel="noopener" class="btn-ghost">
-              <span>Repositorio en GitHub</span>
-            </a>
-          </div>
+          <div class="koto-numeral">01.0 // TELEMETRÍA EN DISPOSITIVO</div>
+          <h2 class="font-editorial" style="font-size: 2.4rem; color: #FFF; margin-top: 4px;">Mediciones Reales en Snapdragon 888 / Exynos</h2>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">
+          BENCHMARK PROFILE: SAMSUNG SM-G990B • CACHYOS BUILD HOST
         </div>
       </div>
 
-      <!-- Quick Metrics Strip -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 50px;">
-        <div class="prism-card" style="padding: 20px 24px; border-left: 3px solid var(--mint);">
-          <div class="font-mono" style="font-size: 0.8rem; color: var(--text-low); text-transform: uppercase;">Publicidad & Trackers</div>
-          <div class="font-display" style="font-size: 2rem; font-weight: 800; color: var(--text-pure); margin-top: 4px;">0 Bloat</div>
-          <div style="font-size: 0.85rem; color: var(--text-mid); margin-top: 4px;">Ni banners ni sugerencias invasivas</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        
+        <!-- Metric 1: OLED Pure -->
+        <div class="raycast-card" style="padding: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <span class="font-mono" style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Subpíxeles Físicos</span>
+            <span class="koto-badge active-mint">OLED 0.000 cd/m²</span>
+          </div>
+          <div class="font-editorial" style="font-size: 3.2rem; color: #FFF; line-height: 1;">#000000</div>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.5; margin-top: 12px;">
+            En lugar de grises oscuros lavados (<code class="font-mono">#121212</code>), los diodos emisores de luz se apagan por completo. Consumo de panel reducido en un 38% a 120Hz.
+          </p>
         </div>
 
-        <div class="prism-card" style="padding: 20px 24px; border-left: 3px solid var(--cyan);">
-          <div class="font-mono" style="font-size: 0.8rem; color: var(--text-low); text-transform: uppercase;">Tasa de Refresco</div>
-          <div class="font-display" style="font-size: 2rem; font-weight: 800; color: var(--text-pure); margin-top: 4px;">120 FPS</div>
-          <div style="font-size: 0.85rem; color: var(--text-mid); margin-top: 4px;">Dynamic AMOLED sin caída de frames</div>
+        <!-- Metric 2: Thermal Delta -->
+        <div class="raycast-card" style="padding: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <span class="font-mono" style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Alivio Térmico</span>
+            <span class="koto-badge active-cyan">-4.2°C Delta</span>
+          </div>
+          <div class="font-editorial" style="font-size: 3.2rem; color: var(--accent-cyan); line-height: 1;">36.1°C</div>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.5; margin-top: 12px;">
+            Al purgar los recolectores de analítica (Sentry, AppsFlyer, Facebook Graph), la GPU y los núcleos Cortex-X1 operan sin entrar en thermal throttling.
+          </p>
         </div>
 
-        <div class="prism-card" style="padding: 20px 24px; border-left: 3px solid var(--crimson);">
-          <div class="font-mono" style="font-size: 0.8rem; color: var(--text-low); text-transform: uppercase;">Consumo en Pantalla</div>
-          <div class="font-display" style="font-size: 2rem; font-weight: 800; color: var(--text-pure); margin-top: 4px;">-35% Batería</div>
-          <div style="font-size: 0.85rem; color: var(--text-mid); margin-top: 4px;">Subpíxeles negros apagados físicamente</div>
+        <!-- Metric 3: RAM Footprint -->
+        <div class="raycast-card" style="padding: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <span class="font-mono" style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Ahorro de Memoria</span>
+            <span class="koto-badge active-crimson">-68% RAM</span>
+          </div>
+          <div class="font-editorial" style="font-size: 3.2rem; color: #FFF; line-height: 1;">114 MB</div>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.5; margin-top: 12px;">
+            La app nativa de Spotify consume hasta 480MB en background. Spotin't corre en Jetpack Compose puro con una huella base de solo 114MB.
+          </p>
         </div>
 
-        <div class="prism-card" style="padding: 20px 24px; border-left: 3px solid var(--violet);">
-          <div class="font-mono" style="font-size: 0.8rem; color: var(--text-low); text-transform: uppercase;">Seguridad</div>
-          <div class="font-display" style="font-size: 2rem; font-weight: 800; color: var(--text-pure); margin-top: 4px;">Zero Root</div>
-          <div style="font-size: 0.85rem; color: var(--text-mid); margin-top: 4px;">Keystores persistentes y bytecode limpio</div>
+        <!-- Metric 4: Keystore PKCS12 -->
+        <div class="raycast-card" style="padding: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <span class="font-mono" style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Firma de Compilación</span>
+            <span class="koto-badge active-violet">Zero Root</span>
+          </div>
+          <div class="font-editorial" style="font-size: 3.2rem; color: var(--accent-violet); line-height: 1;">10,000 d</div>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.5; margin-top: 12px;">
+            Certificados RSA-4096 persistentes para cada aplicación. Actualizaciones in situ sin perder credenciales ni bases de datos locales.
+          </p>
         </div>
+
       </div>
     </section>
 
-    <!-- Apps Bento Grid -->
-    <section id="apps" style="padding: 60px 0;">
-      <div style="margin-bottom: 40px;">
-        <span class="badge badge-mint" style="margin-bottom: 12px;">Ecosistema</span>
-        <h2 class="font-display" style="font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em;">Las 5 Apps de la Suite</h2>
+    <!-- ==============================================================================
+         APPS SHOWCASE: 5 DEDICATED ARCHITECTURE PANELS
+         ============================================================================== -->
+    <section id="apps" style="padding: 40px 0 100px;">
+      
+      <!-- Section Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 24px;">
+        <div>
+          <div class="koto-numeral">02.0 // REPOSITORIO DE APLICACIONES</div>
+          <h2 class="koto-huge-title" style="font-size: clamp(2.5rem, 5vw, 4.2rem);">
+            LAS 5 ARQUITECTURAS
+          </h2>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <span class="koto-badge">Usa las teclas <kbd>1</kbd> a <kbd>5</kbd> para inspeccionar</span>
+        </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 40px;">
 
-        <!-- 1. Spotin't (Hero Card: 12 Columns Full) -->
-        <div class="prism-card app-spotint" style="grid-column: span 12; padding: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center; border-color: rgba(0, 245, 160, 0.25);">
-          <div>
-            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 18px;">
-              <img src="/icons/spotint.png" alt="Spotin't" style="width: 52px; height: 52px; border-radius: 14px; border: 1px solid rgba(0, 245, 160, 0.35); background: #030708;" />
+        <!-- ==========================================
+             01. SPOTIN'T (NATIVE KOTLIN & COMPOSE)
+             ========================================== -->
+        <article id="app-1" class="raycast-card card-spotint" style="padding: 44px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <img src="/icons/spotint.png" alt="Spotin't Icon" style="width: 64px; height: 64px; border-radius: 16px; border: 1px solid rgba(0, 245, 160, 0.4); background: #000;" />
               <div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <h3 class="font-display" style="font-size: 2rem; font-weight: 800; color: #FFF;">Spotin't</h3>
-                  <span class="badge badge-mint">Nativo Kotlin 2.2</span>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span class="koto-numeral" style="color: var(--accent-mint);">01 // SPOTIN'T</span>
+                  <span class="koto-badge active-mint">Nativo Kotlin 2.2</span>
+                  <span class="koto-badge">Compose 1.7</span>
                 </div>
-                <div style="color: var(--mint); font-size: 0.95rem; font-weight: 500;">Música pura en Jetpack Compose • Cero podcasts ni audiolibros</div>
+                <h3 class="font-editorial" style="font-size: 2.8rem; color: #FFF; margin-top: 4px;">
+                  Música Pura. Cero Distracciones.
+                </h3>
               </div>
             </div>
 
-            <p style="color: var(--text-mid); line-height: 1.6; font-size: 1.05rem; margin-bottom: 24px;">
-              Un cliente alternativo de Spotify construido desde cero con Jetpack Compose y Media3. Soporta streaming FLAC de alta resolución mediante fallback automático a YouTube Music (InnerTube), con extracción de paleta en segundo plano y mini-player flotante.
-            </p>
-
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 28px;">
-              <div style="background: rgba(0, 0, 0, 0.4); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
-                <div class="font-mono" style="font-size: 0.75rem; color: var(--text-low);">PESO APK</div>
-                <div class="font-display" style="font-size: 1.25rem; font-weight: 700; color: var(--mint); margin-top: 2px;">24 MB <span style="font-size: 0.8rem; color: var(--text-low); font-weight: 400;">(vs 100MB+ Spotify)</span></div>
-              </div>
-              <div style="background: rgba(0, 0, 0, 0.4); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
-                <div class="font-mono" style="font-size: 0.75rem; color: var(--text-low);">FIDELIDAD DE AUDIO</div>
-                <div class="font-display" style="font-size: 1.25rem; font-weight: 700; color: var(--text-pure); margin-top: 2px;">FLAC 24-bit / 96k</div>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-              <a href="https://github.com/NikkoWebDev/nt-suite/tree/main/Spotin't" target="_blank" rel="noopener" class="btn-ghost" style="padding: 10px 18px; font-size: 0.88rem;">
-                <span>Ver código en Spotin't</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
+            <div style="display: flex; gap: 10px;">
+              <kbd style="height: 28px; padding: 0 10px; font-size: 0.85rem;">[1]</kbd>
             </div>
           </div>
 
-          <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(0, 245, 160, 0.3); box-shadow: 0 15px 35px rgba(0,0,0,0.8);">
-            <img src="/images/spotint_showcase.png" alt="Spotin't UI Showcase" style="width: 100%; height: auto; display: block;" />
-          </div>
-        </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; align-items: center;">
+            <div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 24px;">
+                Construida desde cero sin tocar el binario oficial. Utiliza Jetpack Compose y Media3 ExoPlayer para una experiencia de audio limpia. Se eliminaron podcasts patrocinados, recomendaciones forzadas y promociones invasivas.
+              </p>
 
-        <!-- 2. Youtun't (Crimson Card: 6 Columns) -->
-        <div class="prism-card app-youtunt" style="grid-column: span 6; padding: 36px; border-color: rgba(255, 42, 95, 0.25);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <img src="/icons/youtunt.png" alt="Youtun't" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid rgba(255, 42, 95, 0.4); background: #06080B;" />
+              <!-- Feature Matrix -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px;">
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-mint); font-weight: 600;">AUDIO ENGINE</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Media3 ExoPlayer Hi-Fi</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-mint); font-weight: 600;">UI TOOLKIT</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Mint Glass 2.0 Tokens</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-mint); font-weight: 600;">BACKGROUND</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Audio Focus Persistente</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-mint); font-weight: 600;">PUBLICIDAD</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">0% Cero Banners</div>
+                </div>
+              </div>
+
+              <!-- CLI Execution Block -->
+              <div class="spec-box">
+                <span class="prompt">$</span>cd Spotin't/spotui-src && ./gradlew assembleDebug<br />
+                <span style="color: var(--text-muted);"># Compila el APK nativo firmado con Java 21 OpenJDK</span>
+              </div>
+            </div>
+
+            <!-- UI Showcase Image -->
+            <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0, 245, 160, 0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.8);">
+              <img src="/images/spotint_home.png" alt="Spotin't UI" style="width: 100%; display: block; object-fit: cover;" />
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%); display: flex; justify-content: space-between; align-items: center;">
+                <span class="font-mono" style="font-size: 0.8rem; color: var(--accent-mint);">spotint_home.png • 120Hz Render</span>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Dark Obsidian</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==========================================
+             02. YOUTUN'T (REVANCED V4.16 ENGINE)
+             ========================================== -->
+        <article id="app-2" class="raycast-card card-youtunt" style="padding: 44px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <img src="/icons/youtunt.png" alt="Youtun't Icon" style="width: 64px; height: 64px; border-radius: 16px; border: 1px solid rgba(255, 51, 102, 0.4); background: #000;" />
               <div>
-                <h3 class="font-display" style="font-size: 1.7rem; font-weight: 800; color: #FFF;">Youtun't</h3>
-                <span class="badge badge-crimson">ReVanced v6</span>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span class="koto-numeral" style="color: var(--accent-crimson);">02 // YOUTUN'T</span>
+                  <span class="koto-badge active-crimson">ReVanced Patches v4.16</span>
+                  <span class="koto-badge">SponsorBlock Integrado</span>
+                </div>
+                <h3 class="font-editorial" style="font-size: 2.8rem; color: #FFF; margin-top: 4px;">
+                  Sin Anuncios. Sin Shorts Invasivos.
+                </h3>
               </div>
             </div>
-            <span class="font-mono" style="font-size: 0.78rem; color: var(--crimson);">VP9 HARDWARE</span>
-          </div>
 
-          <p style="color: var(--text-mid); font-size: 0.98rem; line-height: 1.6; margin-bottom: 20px;">
-            Compilación de YouTube que erradica por completo los anuncios de video, los Shorts y las secciones comerciales. Integra SponsorBlock, reproducción en segundo plano y seekbar color menta neón sobre fondo Dark Obsidian.
-          </p>
-
-          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--crimson);">✓</span> SponsorBlock nativo con omisión de patrocinios
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--crimson);">✓</span> Erradicación total de Shorts en home y widgets
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--crimson);">✓</span> Decodificación VP9 por hardware (chip 4°C más frío)
+            <div style="display: flex; gap: 10px;">
+              <kbd style="height: 28px; padding: 0 10px; font-size: 0.85rem;">[2]</kbd>
             </div>
           </div>
 
-          <div style="background: rgba(0, 0, 0, 0.5); padding: 12px 16px; border-radius: 10px; border: 1px solid rgba(255, 42, 95, 0.2);">
-            <code class="font-mono" style="font-size: 0.82rem; color: #FDA4AF;">$ ./youtunt build s21</code>
-          </div>
-        </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; align-items: center;">
+            <div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 24px;">
+                El motor de video de Google despojado de toda fricción comercial. Reproducción nativa en segundo plano con pantalla apagada, salto automático de patrocinios dentro del video, y eliminación radical del botón y carrusel de Shorts.
+              </p>
 
-        <!-- 3. Tikton't (Cyan Card: 6 Columns) -->
-        <div class="prism-card app-tiktont" style="grid-column: span 6; padding: 36px; border-color: rgba(0, 229, 255, 0.25);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <img src="/icons/tiktont.png" alt="Tikton't" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid rgba(0, 229, 255, 0.4); background: #06080B;" />
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px;">
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-crimson); font-weight: 600;">SPONSORBLOCK</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Salto de promos en video</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-crimson); font-weight: 600;">BACKGROUND PLAY</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">PiP + Pantalla Bloqueada</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-crimson); font-weight: 600;">ALGORITMO</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Shorts Ocultos por Defecto</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-crimson); font-weight: 600;">DISPATCHER</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">./youtunt build s21</div>
+                </div>
+              </div>
+
+              <div class="spec-box">
+                <span class="prompt">$</span>./Youtun't/youtunt verify<br />
+                <span style="color: var(--accent-crimson);">✔ 12 parches verificados • SHA256 integrity ok • JDK 21 Ready</span>
+              </div>
+            </div>
+
+            <!-- Terminal Mockup -->
+            <div style="background: #080A0D; border: 1px solid rgba(255, 51, 102, 0.25); border-radius: 16px; padding: 24px; font-family: var(--font-mono); font-size: 0.82rem;">
+              <div style="display: flex; gap: 6px; margin-bottom: 16px;">
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #FF5F56;"></span>
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFBD2E;"></span>
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #27C93F;"></span>
+                <span style="margin-left: 10px; color: var(--text-muted);">youtunt-cli — verified output</span>
+              </div>
+              <div style="color: var(--accent-crimson); margin-bottom: 8px;">[+] Injecting SponsorBlock bytecode...</div>
+              <div style="color: var(--text-secondary); margin-bottom: 4px;">[+] Stripping Shorts navigation tab from XML...</div>
+              <div style="color: var(--text-secondary); margin-bottom: 4px;">[+] Overriding MicroG GmsCore intent bindings...</div>
+              <div style="color: var(--text-secondary); margin-bottom: 4px;">[+] Compiling DEX with D8 / Smali backend...</div>
+              <div style="color: var(--accent-mint); margin-top: 12px;">[SUCCESS] youtunt-s21-release.apk ready (Zero Bloat)</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==========================================
+             03. TIKTON'T (FEED FILTER & PURGED LIVES)
+             ========================================== -->
+        <article id="app-3" class="raycast-card card-tiktont" style="padding: 44px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <img src="/icons/tiktont.png" alt="Tikton't Icon" style="width: 64px; height: 64px; border-radius: 16px; border: 1px solid rgba(0, 229, 255, 0.4); background: #000;" />
               <div>
-                <h3 class="font-display" style="font-size: 1.7rem; font-weight: 800; color: #FFF;">Tikton't</h3>
-                <span class="badge badge-cyan">ReVanced v6</span>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span class="koto-numeral" style="color: var(--accent-cyan);">03 // TIKTON'T</span>
+                  <span class="koto-badge active-cyan">Feed Filter Engine</span>
+                  <span class="koto-badge">Cero ByteDance Telemetry</span>
+                </div>
+                <h3 class="font-editorial" style="font-size: 2.8rem; color: #FFF; margin-top: 4px;">
+                  Solo Videos Reales. Cero Tiendas ni Lives.
+                </h3>
               </div>
             </div>
-            <span class="font-mono" style="font-size: 0.78rem; color: var(--cyan);">CLEAR DISPLAY</span>
-          </div>
 
-          <p style="color: var(--text-mid); font-size: 0.98rem; line-height: 1.6; margin-bottom: 20px;">
-            13 parches oficiales verificados contra el bundle vivo. Oculta el 100% de la publicidad, livestreams y ruido algorítmico, desbloqueando descargas limpias sin marca de agua y control de velocidad global.
-          </p>
-
-          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--cyan);">✓</span> Modo pantalla limpia persistente (cero iconos estorbando)
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--cyan);">✓</span> Descarga directa de videos sin marca de agua
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--cyan);">✓</span> Desactivación de Sentry Telemetry y trackers de ByteDance
+            <div style="display: flex; gap: 10px;">
+              <kbd style="height: 28px; padding: 0 10px; font-size: 0.85rem;">[3]</kbd>
             </div>
           </div>
 
-          <div style="background: rgba(0, 0, 0, 0.5); padding: 12px 16px; border-radius: 10px; border: 1px solid rgba(0, 229, 255, 0.2);">
-            <code class="font-mono" style="font-size: 0.82rem; color: #7DD3FC;">$ ./tiktont build s21</code>
-          </div>
-        </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; align-items: center;">
+            <div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 24px;">
+                El feed de ByteDance filtrado con bisturí. Se eliminan las transmisiones en vivo que saturan el scroll, los botones de TikTok Shop, las marcas de agua forzadas en descargas y la prohibición artificial de hacer capturas de pantalla.
+              </p>
 
-        <!-- 4. Instan't (Violet Card: 6 Columns) -->
-        <div class="prism-card app-instant" style="grid-column: span 6; padding: 36px; border-color: rgba(168, 85, 247, 0.25);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <img src="/icons/instant.png" alt="Instan't" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid rgba(168, 85, 247, 0.4); background: #06080B;" />
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px;">
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-cyan); font-weight: 600;">LIVE FILTER</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Cero transmisiones NPC</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-cyan); font-weight: 600;">WATERMARK FREE</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Descarga limpia en MP4</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-cyan); font-weight: 600;">PRIVACY</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Tracking Sentry bloqueado</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-cyan); font-weight: 600;">SCREENSHOTS</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Sin detección ni bloqueo</div>
+                </div>
+              </div>
+
+              <div class="spec-box">
+                <span class="prompt">$</span>./Tikton't/tiktont verify<br />
+                <span style="color: var(--accent-cyan);">✔ Feed Filter, Sanitize sharing links & Watermark patches active</span>
+              </div>
+            </div>
+
+            <div style="background: #080C10; border: 1px solid rgba(0, 229, 255, 0.25); border-radius: 16px; padding: 24px; font-family: var(--font-mono); font-size: 0.82rem;">
+              <div style="color: var(--text-muted); margin-bottom: 12px;">// tikton-profile.json spec</div>
+              <div style="color: var(--accent-cyan);">"patches": [</div>
+              <div style="color: var(--text-secondary); padding-left: 16px;">"Feed filter",</div>
+              <div style="color: var(--text-secondary); padding-left: 16px;">"Downloads (no watermark)",</div>
+              <div style="color: var(--text-secondary); padding-left: 16px;">"Disable Sentry telemetry",</div>
+              <div style="color: var(--text-secondary); padding-left: 16px;">"Sanitize sharing links",</div>
+              <div style="color: var(--text-secondary); padding-left: 16px;">"Remove screen capture restriction"</div>
+              <div style="color: var(--accent-cyan);">]</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==========================================
+             04. INSTAN'T (DISTRACTION-FREE INSTAGRAM)
+             ========================================== -->
+        <article id="app-4" class="raycast-card card-instant" style="padding: 44px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <img src="/icons/instant.png" alt="Instan't Icon" style="width: 64px; height: 64px; border-radius: 16px; border: 1px solid rgba(168, 85, 247, 0.4); background: #000;" />
               <div>
-                <h3 class="font-display" style="font-size: 1.7rem; font-weight: 800; color: #FFF;">Instan't</h3>
-                <span class="badge badge-violet">LSPatch L2</span>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span class="koto-numeral" style="color: var(--accent-violet);">04 // INSTAN'T</span>
+                  <span class="koto-badge active-violet">Distraction-Free</span>
+                  <span class="koto-badge">Cero Meta Ads</span>
+                </div>
+                <h3 class="font-editorial" style="font-size: 2.8rem; color: #FFF; margin-top: 4px;">
+                  Instagram sin Algoritmo Adictivo.
+                </h3>
               </div>
             </div>
-            <span class="font-mono" style="font-size: 0.78rem; color: var(--violet);">THEME SEEDER</span>
-          </div>
 
-          <p style="color: var(--text-mid); font-size: 0.98rem; line-height: 1.6; margin-bottom: 20px;">
-            Instagram sin anuncios ni distracciones. Un módulo inyector (`ThemeSeeder`) autosiémbra 15 slots de paleta Mint Glass en SharedPreferences al arrancar. Erradica por completo Meta AI y añade Ghost Mode completo.
-          </p>
-
-          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--violet);">✓</span> Erradicación del botón flotante y sugerencias de Meta AI
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--violet);">✓</span> Ghost Mode: visto oculto en DMs, historias y typing
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--violet);">✓</span> Anti-delete de mensajes directos revocados
+            <div style="display: flex; gap: 10px;">
+              <kbd style="height: 28px; padding: 0 10px; font-size: 0.85rem;">[4]</kbd>
             </div>
           </div>
 
-          <div style="background: rgba(0, 0, 0, 0.5); padding: 12px 16px; border-radius: 10px; border: 1px solid rgba(168, 85, 247, 0.2);">
-            <code class="font-mono" style="font-size: 0.82rem; color: #D8B4FE;">$ ./instant build s21</code>
-          </div>
-        </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; align-items: center;">
+            <div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 24px;">
+                Recupera la función original de Instagram: ver fotos de amigos y contactos reales. Sin muro interminable de Reels, sin historias patrocinadas entre amigos y sin sugerencias impuestas por el algoritmo de retención.
+              </p>
 
-        <!-- 5. Wasapn't (Teal/Amber Card: 6 Columns) -->
-        <div class="prism-card app-wasapnt" style="grid-column: span 6; padding: 36px; border-color: rgba(16, 185, 129, 0.25);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <img src="/icons/wasapnt.png" alt="Wasapn't" style="width: 46px; height: 46px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.4); background: #06080B;" />
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px;">
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-violet); font-weight: 600;">REELS REMOVED</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Cero scroll infinito</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-violet); font-weight: 600;">STORY ADS</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Historias limpias 100%</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-violet); font-weight: 600;">MEDIA SAVER</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Descarga fotos y clips HD</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-violet); font-weight: 600;">META AI</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Buscador purgado</div>
+                </div>
+              </div>
+
+              <div class="spec-box">
+                <span class="prompt">$</span>./Instan't/instant<br />
+                <span style="color: var(--accent-violet);">✔ Injected inlined APK smali hooks • 0 Root required</span>
+              </div>
+            </div>
+
+            <div style="background: #0D0A12; border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 16px; padding: 24px; font-family: var(--font-mono); font-size: 0.82rem;">
+              <div style="color: var(--accent-violet); margin-bottom: 8px;">[HOOK] ig_hide_reels_tab -> true</div>
+              <div style="color: var(--accent-violet); margin-bottom: 8px;">[HOOK] ig_strip_story_sponsored_items -> true</div>
+              <div style="color: var(--accent-violet); margin-bottom: 8px;">[HOOK] ig_media_downloader_enable -> true</div>
+              <div style="color: var(--text-muted); margin-top: 14px;">// Sin anuncios intercalados. Tu feed, solo de quien sigues.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==========================================
+             05. WASAPN'T (WAENHANCERX & OLED PRIVACY)
+             ========================================== -->
+        <article id="app-5" class="raycast-card card-wasapnt" style="padding: 44px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <img src="/icons/wasapnt.png" alt="Wasapn't Icon" style="width: 64px; height: 64px; border-radius: 16px; border: 1px solid rgba(16, 185, 129, 0.4); background: #000;" />
               <div>
-                <h3 class="font-display" style="font-size: 1.7rem; font-weight: 800; color: #FFF;">Wasapn't</h3>
-                <span class="badge badge-amber">En Desarrollo</span>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span class="koto-numeral" style="color: var(--accent-emerald);">05 // WASAPN'T</span>
+                  <span class="koto-badge active-emerald">WaEnhancerX + LSPatch</span>
+                  <span class="koto-badge">Canales Habilitados</span>
+                </div>
+                <h3 class="font-editorial" style="font-size: 2.8rem; color: #FFF; margin-top: 4px;">
+                  Mensajería Segura. Canales Preservados.
+                </h3>
               </div>
             </div>
-            <span class="font-mono" style="font-size: 0.78rem; color: var(--emerald);">E2EE SIGNAL PRESERVED</span>
-          </div>
 
-          <p style="color: var(--text-mid); font-size: 0.98rem; line-height: 1.6; margin-bottom: 20px;">
-            Privacidad pasiva a nivel de memoria RAM con WaEnhancerX. Preserva los mensajes revocados en la base SQLite local y cancela la expiración de fotos efímeras sin tocar las llaves criptográficas de Signal.
-          </p>
-
-          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-high);">
-              <span style="color: var(--emerald);">✓</span> Cifrado Signal Protocol 100% oficial e intacto
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--emerald);">
-              <span style="color: var(--emerald);">✓</span> Bypass de visualización única (View-Once ilimitado)
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--emerald);">
-              <span style="color: var(--emerald);">✓</span> Canales de WhatsApp preservados explícitamente
+            <div style="display: flex; gap: 10px;">
+              <kbd style="height: 28px; padding: 0 10px; font-size: 0.85rem;">[5]</kbd>
             </div>
           </div>
 
-          <div style="background: rgba(0, 0, 0, 0.5); padding: 12px 16px; border-radius: 10px; border: 1px solid rgba(16, 185, 129, 0.2);">
-            <code class="font-mono" style="font-size: 0.82rem; color: #6EE7B7;">$ ./wasapnt status && ./wasapnt build</code>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; align-items: center;">
+            <div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 24px;">
+                Módulo WaEnhancerX inyectado sobre la versión estable de WhatsApp. Por directiva de arquitectura, los Canales se mantienen activos (<code class="font-mono">keepChannels: true</code>), combinando anti-eliminación de mensajes, privacidad reforzada y modo OLED puro.
+              </p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px;">
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-emerald); font-weight: 600;">CANALES</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Preservados Deliberadamente</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-emerald); font-weight: 600;">ANTI-REVOKE</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">Mensajes nunca borrados</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-emerald); font-weight: 600;">THEME CORE</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">OLED #000000 subpixel</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); padding: 14px; border-radius: 10px;">
+                  <div class="font-mono" style="font-size: 0.76rem; color: var(--accent-emerald); font-weight: 600;">INJECTION</div>
+                  <div style="font-size: 0.95rem; font-weight: 600; color: #FFF; margin-top: 2px;">LSPatch sin Root</div>
+                </div>
+              </div>
+
+              <div class="spec-box">
+                <span class="prompt">$</span>./Wasapn't/wasapnt status<br />
+                <span style="color: var(--accent-emerald);">✔ LSPatch JAR online • WaEnhancerX module loaded • Channels Tab: VISIBLE</span>
+              </div>
+            </div>
+
+            <div style="background: #08110D; border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 16px; padding: 24px; font-family: var(--font-mono); font-size: 0.82rem;">
+              <div style="color: var(--text-muted); margin-bottom: 12px;">// config/wasapnt-theme.json directive</div>
+              <div style="color: var(--accent-emerald);">&#123;</div>
+              <div style="color: var(--text-secondary); padding-left: 16px;">"primaryColor": "#00F5A0",</div>
+              <div style="color: var(--text-secondary); padding-left: 16px;">"backgroundColor": "#000000",</div>
+              <div style="color: var(--accent-mint); padding-left: 16px; font-weight: 700;">"hideChannelsTab": false,</div>
+              <div style="color: var(--text-secondary); padding-left: 16px;">"antiDeleteMessages": true</div>
+              <div style="color: var(--accent-emerald);">&#125;</div>
+            </div>
           </div>
-        </div>
+        </article>
 
       </div>
     </section>
 
-    <!-- Hardware Section (S21 FE) -->
-    <section id="hardware" style="padding: 60px 0;">
-      <div class="prism-card" style="padding: 48px; border-radius: 32px; background: linear-gradient(135deg, rgba(14, 19, 26, 0.85) 0%, rgba(4, 6, 8, 0.95) 100%);">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; margin-bottom: 36px;">
-          <div style="max-width: 680px;">
-            <span class="badge badge-crimson" style="margin-bottom: 14px;">Thermal & Power Engineering</span>
-            <h2 class="font-display" style="font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px;">
-              El cuello de botella de los 5 nm
-            </h2>
-            <p style="color: var(--text-mid); font-size: 1.05rem; line-height: 1.6;">
-              Tanto el Snapdragon 888 como el Exynos 2100 en el S21 FE operan en una ventana térmica muy estrecha. Las apps comerciales abusan de la GPU con capas invisibles y mantienen los núcleos a máxima frecuencia con telemetría en segundo plano.
-            </p>
-          </div>
-
-          <div class="font-mono" style="background: rgba(0,0,0,0.6); padding: 16px 20px; border-radius: 14px; border: 1px solid rgba(255, 42, 95, 0.3);">
-            <div style="font-size: 0.75rem; color: var(--text-low);">TEMPERATURA EN VIDEO</div>
-            <div style="font-size: 1.8rem; font-weight: 700; color: var(--crimson);">33°C <span style="font-size: 0.8rem; color: var(--text-low); font-weight: 400;">(vs 44°C oficial)</span></div>
-          </div>
+    <!-- ==============================================================================
+         CLI AUTOMATION & DISPATCHER STRIP
+         ============================================================================== -->
+    <section id="terminal" style="padding: 60px 0 100px; border-top: 1px solid var(--border-subtle);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div class="koto-numeral">03.0 // CLI WORKFLOW & REPRODUCIBILIDAD</div>
+          <h2 class="koto-huge-title" style="font-size: clamp(2.2rem, 4.5vw, 3.6rem);">
+            COMPILACIÓN DETERMINISTA
+          </h2>
         </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-          <div style="background: rgba(0,0,0,0.4); padding: 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06);">
-            <div class="font-mono" style="color: var(--cyan); font-size: 0.82rem; margin-bottom: 6px;">DYNAMIC AMOLED 2X</div>
-            <h4 class="font-display" style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Negros al 0% en OLED</h4>
-            <p style="font-size: 0.88rem; color: var(--text-mid); line-height: 1.5;">El fondo Obsidian (#040608) apaga físicamente los subpíxeles orgánicos de la pantalla a 120Hz, reduciendo drásticamente el consumo del panel.</p>
-          </div>
-
-          <div style="background: rgba(0,0,0,0.4); padding: 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06);">
-            <div class="font-mono" style="color: var(--mint); font-size: 0.82rem; margin-bottom: 6px;">HARDWARE MEDIACODEC</div>
-            <h4 class="font-display" style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Decodificación Nativa</h4>
-            <p style="font-size: 0.88rem; color: var(--text-mid); line-height: 1.5;">Forzar decodificación VP9 directa en hardware evita que los núcleos de alto rendimiento despierten para procesar video o notas de voz.</p>
-          </div>
-
-          <div style="background: rgba(0,0,0,0.4); padding: 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06);">
-            <div class="font-mono" style="color: var(--violet); font-size: 0.82rem; margin-bottom: 6px;">BACKGROUND DOZE</div>
-            <h4 class="font-display" style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Deep Sleep Real</h4>
-            <p style="font-size: 0.88rem; color: var(--text-mid); line-height: 1.5;">Al eliminar los daemons de subida de diagnósticos (Facebook Graph y Sentry), el teléfono entra en reposo absoluto sin despertar en tu bolsillo.</p>
-          </div>
-        </div>
+        <a href="https://github.com/NikkoWebDev/nt-suite" target="_blank" rel="noopener" class="raycast-btn raycast-btn-primary">
+          <span>Ver Instrucciones en GitHub</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
       </div>
-    </section>
 
-    <!-- Terminal & Monorepo Section -->
-    <section id="terminal" style="padding: 60px 0;">
-      <div class="prism-card" style="padding: 40px; border-radius: 28px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
-          <div>
-            <h3 class="font-display" style="font-size: 2rem; font-weight: 800; margin-bottom: 6px;">Compilación Local en CachyOS / Linux</h3>
-            <p style="color: var(--text-mid); font-size: 0.95rem;">Clona el monorepo y compila tus propios APKs firmados de forma determinista.</p>
-          </div>
-          <a href="https://github.com/NikkoWebDev/nt-suite" target="_blank" rel="noopener" class="btn-primary" style="font-size: 0.9rem; padding: 10px 20px;">
-            <span>Ver Monorepo nt-suite</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          </a>
+      <div class="raycast-card" style="padding: 32px; background: #07090C;">
+        <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+          <span class="koto-badge active-mint">Bash Strict Mode</span>
+          <span class="koto-badge">JDK 21 OpenJDK</span>
+          <span class="koto-badge">Android SDK 34</span>
         </div>
+        
+        <pre class="font-mono" style="color: var(--text-secondary); line-height: 1.7; font-size: 0.88rem; overflow-x: auto;">
+<span style="color: var(--text-muted);"># 1. Clonar el monorepo oficial</span>
+<span style="color: var(--accent-mint);">git clone</span> https://github.com/NikkoWebDev/nt-suite.git && <span style="color: var(--accent-mint);">cd</span> nt-suite
 
-        <div style="background: #020406; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 24px; overflow-x: auto;">
-          <pre class="font-mono" style="font-size: 0.9rem; line-height: 1.8;">
-<span style="color: var(--text-low);"># 1. Clonar el monorepo oficial</span>
-<span style="color: #FFF;">git clone https://github.com/NikkoWebDev/nt-suite.git</span>
-<span style="color: #FFF;">cd nt-suite</span>
+<span style="color: var(--text-muted);"># 2. Auditar la integridad de los parches y keystores de toda la suite</span>
+./Youtun't/youtunt verify
+./Tikton't/tiktont verify
+./Wasapn't/wasapnt status
 
-<span style="color: var(--text-low);"># 2. Compilar YouTube sin anuncios ni Shorts</span>
-<span style="color: var(--crimson);">cd Youtun\'t && ./youtunt build s21</span>
-
-<span style="color: var(--text-low);"># 3. Compilar TikTok con 13 parches oficiales y modo pantalla limpia</span>
-<span style="color: var(--cyan);">cd ../Tikton\'t && ./tiktont build s21</span>
-
-<span style="color: var(--text-low);"># 4. Compilar Instagram con tema Mint Glass autosembrado</span>
-<span style="color: var(--violet);">cd ../Instan\'t && ./instant build s21</span>
-
-<span style="color: var(--text-low);"># 5. Compilar Spotin't nativo en Jetpack Compose (Java 21 + SDK)</span>
-<span style="color: var(--mint);">cd ../Spotin\'t/spotui-src && ./gradlew assembleDebug</span>
-          </pre>
-        </div>
+<span style="color: var(--text-muted);"># 3. Compilar APKs optimizados para Samsung S21 FE</span>
+./Youtun't/youtunt build s21
+./Tikton't/tiktont build s21
+(cd Spotin't/spotui-src && ./gradlew assembleDebug)
+        </pre>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 24px; text-align: center; color: var(--text-low); font-size: 0.9rem;">
-    <div style="max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-      <div>
-        <strong style="color: var(--text-pure);">nt.nikko.dev</strong> • Proyecto de ingeniería de <a href="https://nikko.dev" target="_blank" rel="noopener" style="color: var(--mint); text-decoration: none; font-weight: 600;">nikko.dev</a> ("N")
-      </div>
-      <div style="display: flex; gap: 20px;">
-        <a href="https://github.com/NikkoWebDev/nt-suite" target="_blank" rel="noopener" style="color: var(--text-mid); text-decoration: none;">GitHub Monorepo</a>
-        <a href="https://www.linkedin.com/in/nikolas-gallo/" target="_blank" rel="noopener" style="color: var(--text-mid); text-decoration: none;">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
+  <!-- ==============================================================================
+       RAYCAST FLOATING BOTTOM COMMAND DOCK
+       ============================================================================== -->
+  <aside class="command-dock">
+    <a href="#app-1" class="dock-item" data-app="1">
+      <kbd>1</kbd>
+      <span>Spotin't</span>
+    </a>
+    <a href="#app-2" class="dock-item" data-app="2">
+      <kbd>2</kbd>
+      <span>Youtun't</span>
+    </a>
+    <a href="#app-3" class="dock-item" data-app="3">
+      <kbd>3</kbd>
+      <span>Tikton't</span>
+    </a>
+    <a href="#app-4" class="dock-item" data-app="4">
+      <kbd>4</kbd>
+      <span>Instan't</span>
+    </a>
+    <a href="#app-5" class="dock-item" data-app="5">
+      <kbd>5</kbd>
+      <span>Wasapn't</span>
+    </a>
+    <div style="width: 1px; height: 16px; background: rgba(255,255,255,0.15); margin: 0 4px;"></div>
+    <a href="https://github.com/NikkoWebDev/nt-suite" target="_blank" rel="noopener" class="dock-item">
+      <kbd>G</kbd>
+      <span>GitHub</span>
+    </a>
+  </aside>
+
+  <!-- ==============================================================================
+       RAYCAST SPOTLIGHT & KEYBOARD INTERACTION ENGINE (VANILLA JS)
+       ============================================================================== -->
+  <script is:inline>
+    // 1. Mouse-following global ambient spotlight
+    window.addEventListener('mousemove', (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    });
+
+    // 2. Individual Card Spotlight Border illumination
+    document.querySelectorAll('.raycast-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--card-x', `${x}px`);
+        card.style.setProperty('--card-y', `${y}px`);
+      });
+    });
+
+    // 3. Tactile Keyboard Navigation (1-5, G, T)
+    window.addEventListener('keydown', (e) => {
+      // Don't intercept if user is typing in an input
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+      const key = e.key.toLowerCase();
+      if (['1', '2', '3', '4', '5'].includes(key)) {
+        e.preventDefault();
+        const target = document.getElementById(`app-${key}`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          target.style.transition = 'box-shadow 0.3s ease';
+          target.style.boxShadow = '0 0 50px rgba(0, 245, 160, 0.45)';
+          setTimeout(() => {
+            target.style.boxShadow = '';
+          }, 1200);
+        }
+      } else if (key === 'g') {
+        window.open('https://github.com/NikkoWebDev/nt-suite', '_blank');
+      } else if (key === 't') {
+        const term = document.getElementById('terminal');
+        if (term) term.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // 4. Scroll spy for dock indicator
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          if (id && id.startsWith('app-')) {
+            const num = id.replace('app-', '');
+            document.querySelectorAll('.dock-item').forEach(d => d.classList.remove('active'));
+            const activeDock = document.querySelector(`.dock-item[data-app="${num}"]`);
+            if (activeDock) activeDock.classList.add('active');
+          }
+        }
+      });
+    }, { threshold: 0.4 });
+
+    for (let i = 1; i <= 5; i++) {
+      const el = document.getElementById(`app-${i}`);
+      if (el) observer.observe(el);
+    }
+  </script>
 </Layout>
